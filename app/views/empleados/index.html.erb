@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Empleados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Edad</th>
+      <th>Email</th>
+      <th>Sede</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empleados.each do |empleado| %>
+      <tr>
+        <td><%= empleado.nombre %></td>
+        <td><%= empleado.apellido %></td>
+        <td><%= empleado.edad %></td>
+        <td><%= empleado.email %></td>
+        <td><%= empleado.sede_id %></td>
+        <td><%= link_to 'Show', sede_empleado_path(@sede, empleado) %></td>
+        <td><%= link_to 'Edit', edit_sede_empleado_path(@sede, empleado) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empleado', new_sede_empleado_path(@sede) %>
